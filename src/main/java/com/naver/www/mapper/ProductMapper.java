@@ -3,6 +3,7 @@ package com.naver.www.mapper;
 import java.util.ArrayList;
 import java.util.List;
 
+
 import org.springframework.stereotype.Repository;
 
 import com.naver.www.model.Product;
@@ -25,7 +26,7 @@ public class ProductMapper {
 		return prods;
 	}
 
-	public Product getProdByProdName(String prodName) {
+	public Product getProdByName(String prodName) {
 		return prods.stream()
 			.filter(prod -> prod.getProdName().equals(prodName))
 			.findAny()

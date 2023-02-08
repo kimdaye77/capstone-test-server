@@ -1,6 +1,5 @@
 package com.naver.www.controller;
 
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -24,14 +23,18 @@ public class ProductController {
 	@Autowired
 	private ProductService prodService;
 
-	@GetMapping("")
-	public List<Product> getAllProds() {
-		return prodService.getAllProds();
-	}
+//	@GetMapping("")
+//	public List<Product> getAllProds() {
+//		return prodService.getAllProds();
+//	}
+//	@GetMapping("")
+//	public Iterable<Product> getAllProds() {
+//		return prodService.findAll();
+//	}
 
 	@GetMapping("/{prodName}")
-	public Product getUserByUserid(@PathVariable String prodName) {
-		return prodService.getProdByProdName(prodName);
+	public Product getProdByName(@PathVariable String prodName) {
+		return prodService.getProdByName(prodName);
 	}
 
 	@PostMapping("")
