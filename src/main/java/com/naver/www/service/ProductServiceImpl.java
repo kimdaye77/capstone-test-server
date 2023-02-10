@@ -19,35 +19,27 @@ public class ProductServiceImpl implements ProductService {
 
 	@Autowired
 	ProductMapper prodMapper;
-	
-	public List<Product> getAllProds() {
-		return prodMapper.getAllProds();
-	}
-
-//	public Product getProdByName(String prodName) {
-//		return prodMapper.getProdByName(prodName);
-//	}
-
-	public Product registerProd(Product prod) {
-		return prodMapper.InsertProd(prod);
-	}
-
-	public void modifyProd(String userId, Product user) {
-		prodMapper.updateProd(userId, user);
-	}
-
-	public void removeProd(String prodName) {
-		prodMapper.deleteProd(prodName);
-	}
-
 	// es
 	public Iterable<Product> findAll() {
 		return prodMapper.findAll();
 	}
-//	public List<Product> findByName(String name, Pageable pageable){
-//		return prodMapper.findByName(name, pageable).stream().collect(Collectors.toList());
-//	}
+	public List<Product> findById(String id){
+		return prodMapper.findById(id).stream().collect(Collectors.toList());
+	}
 	public Product save(Product prod){
 		return prodMapper.save(prod);
 	}
+	
+	public void delete(Product prod) {
+		prodMapper.delete(prod);
+	}
+	
+	public void deleteById(String id) {
+		prodMapper.deleteById(id);
+	}
+	
+	public void update(String id, Product prod) {
+		prodMapper.update(id, prod);
+	}
+
 }

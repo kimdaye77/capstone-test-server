@@ -1,6 +1,7 @@
 package com.naver.www.repository;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -14,5 +15,5 @@ import com.naver.www.model.Product;
 public interface ProductRepository extends ElasticsearchRepository<Product, String> {
 	Product save(Product prod);
 	Iterable<Product> findAll();
-//	List<Product> findByName(String name);
+	Optional<Product> findById(String name);
 }

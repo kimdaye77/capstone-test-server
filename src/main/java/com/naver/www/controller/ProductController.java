@@ -27,47 +27,37 @@ public class ProductController {
 
 	@Autowired
 	private ProductService prodService;
-
-	@GetMapping("")
-	public List<Product> getAllProds() {
-		return prodService.getAllProds();
-	}
-
-//	@GetMapping("/{prodName}")
-//	public Product getProdByName(@PathVariable String prodName) {
-//		return prodService.getProdByName(prodName);
-//	}
-
-	@PostMapping("")
-	@ResponseBody
-	public Product registerProd(@RequestBody Product prod) {
-		return prodService.registerProd(prod);
-	}
-
-	@PutMapping("/{prodName}")
-	public void modifyProd(@PathVariable String prodName, @RequestBody Product prod) {
-		prodService.modifyProd(prodName, prod);
-	}
-
-	@DeleteMapping("/{prodName}")
-	public void removeProd(@PathVariable String prodName) {
-		prodService.removeProd(prodName);
-	}
 	
 	//es
-	@GetMapping("/es")
+	@GetMapping("")
 	public Iterable<Product> findAll() {
 		return prodService.findAll();
 	}
 	
-//	@GetMapping("/{prodName}")
-//	public List<Product> getProdByName(@PathVariable String name, Pageable pageable) {
-//		return prodService.findByName(name, pageable);
-//	}
-//	
+	@GetMapping("/{id}")
+	public List<Product> findById(@PathVariable String id) {
+		return prodService.findById(id);
+	}
+	
 	@PostMapping("/save")
 	@ResponseBody
 	public Product save(@RequestBody Product prod) {
 		return prodService.save(prod);
 	}
+	
+	@DeleteMapping("")
+	public void delete(@PathVariable Product prod) {
+		prodService.delete(prod);
+	}
+
+	@DeleteMapping("/{id}")
+	public void deleteById(@PathVariable String id) {
+		prodService.deleteById(id);
+	}
+	
+	@PutMapping("/{id}")
+	public void modifyProd(@PathVariable String id, @RequestBody Product prod) {
+		prodService.update(id, prod);
+	}
+
 }
