@@ -18,8 +18,9 @@ import lombok.ToString;
 @Document(indexName = "product")
 public class Product {
 	
+	
+//	private int prodId; //상품아이디
 	@Id
-	private int prodId; //상품아이디
 	@Field(type = FieldType.Text)
 	private String prodName; //상품명
 	@Field(type = FieldType.Text)
@@ -27,22 +28,22 @@ public class Product {
 	@Field(type = FieldType.Text)
 	private String prodReview; //상품후기
 
-	
-	public Product(int prodId, String prodName, String prodDesc, String prodReview) {
+	//인자 prodId 제거
+	public Product(String prodName, String prodDesc, String prodReview) {
 		super();
-		this.prodId = prodId;
+//		this.prodId = prodId;
 		this.prodName = prodName;
 		this.prodDesc = prodDesc;
 		this.prodReview = prodReview;
 	}
 
-	public int getProdId() {
-		return prodId;
-	}
-
-	public void setProdId(int prodId) {
-		this.prodId = prodId;
-	}
+//	public int getProdId() {
+//		return prodId;
+//	}
+//
+//	public void setProdId(int prodId) {
+//		this.prodId = prodId;
+//	}
 
 	public String getProdName() {
 		return prodName;
